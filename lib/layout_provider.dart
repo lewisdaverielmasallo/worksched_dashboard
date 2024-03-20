@@ -49,7 +49,7 @@ class LayoutProvider {
             children: [
               Image(
                 image: AssetImage(
-                  'assets/res/bottomnav/${title.toLowerCase().replaceAll(" ", "_")}1024x1024.png',
+                  'assets/res/bottomnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
                 ),
                 height: 200,
                 width: 200,
@@ -71,7 +71,7 @@ class LayoutProvider {
           title: Text(title),
           leading: Image(
             image: AssetImage(
-                'assets/res/leftnav/${title.toLowerCase().replaceAll(" ", "_")}1024x1024.png'),
+                'assets/res/leftnav/${title.toLowerCase().replaceAll(" ", "_")}18x18.png'),
             height: 50,
             width: 50,
           ),
@@ -84,12 +84,6 @@ class LayoutProvider {
       for (String title in midNav)
         ListTile(
           title: Text(title),
-          leading: Image(
-            image: AssetImage(
-                'assets/res/midnav/${title.toLowerCase().replaceAll(" ", "_")}1024x1024.png'),
-            height: 50,
-            width: 50,
-          ),
         ),
     ];
   }
@@ -112,7 +106,7 @@ class LayoutProvider {
             children: [
               Image(
                 image: AssetImage(
-                  'assets/res/topnav/${title.toLowerCase().replaceAll(" ", "_")}1024x1024.png',
+                  'assets/res/topnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
                 ),
                 width: 150,
               ),

@@ -55,6 +55,6 @@ flutter:
     # - assets/midnav/survey32x32.png
 
     # topnav
-    # - assets/topnav/analytics32x32.png
-    # - assets/topnav/calendar32x32.png
-    # - assets/topnav/my_team32x32.png
+    - assets/topnav/analytics32x32.png
+    - assets/topnav/calendar32x32.png
+    - assets/topnav/my_team32x32.png
