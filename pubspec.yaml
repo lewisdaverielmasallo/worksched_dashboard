@@ -24,18 +24,37 @@ flutter:
     # dashboard sample
     - assets/res/dashboard.png
 
-    # other icons
-    # - assets/res/topnav/analytics1024x1024.png
-    # - assets/res/topnav/calendar1024x1024.png
-    # - assets/res/topnav/my_team1024x1024.png
+    # bottomnav
+    # - assets/bottomnav/timelog1024x1024.png
+    # - assets/bottomnav/change_shift1024x1024.png
+    # - assets/bottomnav/change_day_type1024x1024.png
+    # - assets/bottomnav/official_business1024x1024.png
+    # - assets/bottomnav/leaves1024x1024.png
+    # - assets/bottomnav/reimbusement1024x1024.png
+    # - assets/bottomnav/overtime1024x1024.png
+    # - assets/bottomnav/work_from_home1024x1024.png
+    # - assets/bottomnav/undertime1024x1024.png
+    # - assets/bottomnav/my_request1024x1024.png
 
-    # - assets/res/bottomnav/timelog1024x1024.png
-    # - assets/res/bottomnav/change_shift1024x1024.png
-    # - assets/res/bottomnav/change_day_type1024x1024.png
-    # - assets/res/bottomnav/official_business1024x1024.png
-    # - assets/res/bottomnav/leaves1024x1024.png
-    # - assets/res/bottomnav/reimbusement1024x1024.png
-    # - assets/res/bottomnav/overtime1024x1024.png
-    # - assets/res/bottomnav/work_from_home1024x1024.png
-    # - assets/res/bottomnav/undertime1024x1024.png
-    # - assets/res/bottomnav/my_request1024x1024.png
+    # leftnav
+    # - assets/leftnav/dashboard1024x1024.png
+    # - assets/leftnav/time_sheet1024x1024.png
+    # - assets/leftnav/date_time_record1024x1024.png
+    # - assets/leftnav/leave_ledger1024x1024.png
+    # - assets/leftnav/load_ledger1024x1024.png
+    # - assets/leftnav/performance_evaluation1024x1024.png
+    # - assets/leftnav/on_boarding1024x1024.png
+    # - assets/leftnav/faqs1024x1024.png
+    # - assets/leftnav/accountability_scanner1024x1024.png
+    # - assets/leftnav/reports1024x1024.png
+
+    # midnav
+    # - assets/midnav/bundy1024x1024.png
+    # - assets/midnav/balances1024x1024.png
+    # - assets/midnav/announcements1024x1024.png
+    # - assets/midnav/survey1024x1024.png
+
+    # topnav
+    # - assets/topnav/analytics1024x1024.png
+    # - assets/topnav/calendar1024x1024.png
+    # - assets/topnav/my_team1024x1024.png

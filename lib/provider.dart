@@ -1,32 +1,6 @@
 import 'package:flutter/material.dart';
 
 class StaticData {
-  static final leftnav = [
-    // "Dashboard",
-    // "Time Sheet",
-    // "Date Time Record",
-    // "Leve Ledger",
-    // "Loan Ledger",
-    // "Performance Evaluation",
-    // "On Boarding",
-    // "FAQs",
-    // "Accountability Scanner",
-    // "Reports",
-  ];
-
-  static final topnav = [
-    // "Calendar",
-    // "Analytics",
-    // "My Team",
-  ];
-
-  static final midnav = [
-    // "Bundy",
-    // "Balances",
-    // "Anouncements",
-    // "Survey",
-  ];
-
   static final bottomnav = [
     // "Timelog",
     // "Change Shift",
@@ -38,6 +12,32 @@ class StaticData {
     // "Work From Home",
     // "Undertime",
     // "My Request"
+  ];
+
+  static final leftnav = [
+    // "Dashboard",
+    // "Time Sheet",
+    // "Date Time Record",
+    // "Leave Ledger",
+    // "Loan Ledger",
+    // "Performance Evaluation",
+    // "On Boarding",
+    // "FAQs",
+    // "Accountability Scanner",
+    // "Reports",
+  ];
+
+  static final midnav = [
+    // "Bundy",
+    // "Balances",
+    // "Anouncements",
+    // "Survey",
+  ];
+
+  static final topnav = [
+    // "Calendar",
+    // "Analytics",
+    // "My Team",
   ];
 
   static List<Widget> getLeftNavs() {
