@@ -21,40 +21,40 @@ flutter:
   uses-material-design: true
 
   assets:
-    # dashboard sample
+    # dashboard samplepng
     - assets/res/dashboard.png
 
     # bottomnav
-    # - assets/bottomnav/timelog1024x1024.png
-    # - assets/bottomnav/change_shift1024x1024.png
-    # - assets/bottomnav/change_day_type1024x1024.png
-    # - assets/bottomnav/official_business1024x1024.png
-    # - assets/bottomnav/leaves1024x1024.png
-    # - assets/bottomnav/reimbusement1024x1024.png
-    # - assets/bottomnav/overtime1024x1024.png
-    # - assets/bottomnav/work_from_home1024x1024.png
-    # - assets/bottomnav/undertime1024x1024.png
-    # - assets/bottomnav/my_request1024x1024.png
+    - assets/bottomnav/timelog32x32.png
+    - assets/bottomnav/change_shift32x32.png
+    - assets/bottomnav/change_day_type32x32.png
+    - assets/bottomnav/official_business32x32.png
+    - assets/bottomnav/leaves32x32.png
+    - assets/bottomnav/reimburstment32x32.png
+    - assets/bottomnav/overtime32x32.png
+    - assets/bottomnav/work_from_home32x32.png
+    - assets/bottomnav/undertime32x32.png
+    - assets/bottomnav/my_request32x32.png
 
     # leftnav
-    # - assets/leftnav/dashboard1024x1024.png
-    # - assets/leftnav/time_sheet1024x1024.png
-    # - assets/leftnav/date_time_record1024x1024.png
-    # - assets/leftnav/leave_ledger1024x1024.png
-    # - assets/leftnav/load_ledger1024x1024.png
-    # - assets/leftnav/performance_evaluation1024x1024.png
-    # - assets/leftnav/on_boarding1024x1024.png
-    # - assets/leftnav/faqs1024x1024.png
-    # - assets/leftnav/accountability_scanner1024x1024.png
-    # - assets/leftnav/reports1024x1024.png
+    # - assets/leftnav/dashboard32x32.png
+    # - assets/leftnav/time_sheet32x32.png
+    # - assets/leftnav/date_time_record32x32.png
+    # - assets/leftnav/leave_ledger32x32.png
+    # - assets/leftnav/load_ledger32x32.png
+    # - assets/leftnav/performance_evaluation32x32.png
+    # - assets/leftnav/on_boarding32x32.png
+    # - assets/leftnav/faqs32x32.png
+    # - assets/leftnav/accountability_scanner32x32.png
+    # - assets/leftnav/reports32x32.png
 
     # midnav
-    # - assets/midnav/bundy1024x1024.png
-    # - assets/midnav/balances1024x1024.png
-    # - assets/midnav/announcements1024x1024.png
-    # - assets/midnav/survey1024x1024.png
+    # - assets/midnav/bundy32x32.png
+    # - assets/midnav/balances32x32.png
+    # - assets/midnav/announcements32x32.png
+    # - assets/midnav/survey32x32.png
 
     # topnav
-    # - assets/topnav/analytics1024x1024.png
-    # - assets/topnav/calendar1024x1024.png
-    # - assets/topnav/my_team1024x1024.png
+    # - assets/topnav/analytics32x32.png
+    # - assets/topnav/calendar32x32.png
+    # - assets/topnav/my_team32x32.png

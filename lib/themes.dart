@@ -7,8 +7,8 @@ class CustomTheme {
     elevation: 0,
   );
 
-  static TextStyle titleLarge = const TextStyle(
-      color: Colors.blue, fontSize: 24, fontWeight: FontWeight.w900);
+  static TextStyle titleLarge = TextStyle(
+      color: Colors.blue[800], fontSize: 24, fontWeight: FontWeight.w500);
   static ThemeData lightThemeData(BuildContext context) {
     return ThemeData(
       useMaterial3: true,
