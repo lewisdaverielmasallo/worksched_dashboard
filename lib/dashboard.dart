@@ -88,7 +88,7 @@ class LeftNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      children: LayoutProvider.getBottomNav(context),
+      children: LayoutProvider.getLeftNavs(context),
     );
   }
 }
@@ -99,7 +99,7 @@ class MidNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      children: LayoutProvider.getBottomNav(context),
+      children: LayoutProvider.getMidNavs(context),
     );
   }
 }

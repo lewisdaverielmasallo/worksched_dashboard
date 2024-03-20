@@ -30,7 +30,7 @@ class LayoutProvider {
     ];
   }
 
-  static List<Widget> getLeftNavs() {
+  static List<Widget> getLeftNavs(BuildContext context) {
     return [
       for (String title in leftNav)
         ListTile(
@@ -45,7 +45,7 @@ class LayoutProvider {
     ];
   }
 
-  static List<Widget> getMidNavs() {
+  static List<Widget> getMidNavs(BuildContext context) {
     return [
       for (String title in midNav)
         ListTile(
