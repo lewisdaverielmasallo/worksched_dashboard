@@ -20,23 +20,6 @@ class Main extends StatelessWidget {
   }
 }
 
-// class MainConstraints extends StatelessWidget {
-//   const MainConstraints({super.key, required this.child});
-//   final Widget child;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Align(
-//       child: ConstrainedBox(
-//         constraints: const BoxConstraints(
-//           maxWidth: 1366,
-//         ),
-//         child: SizedBox(width: 1366, height: 960, child: child),
-//       ),
-//     );
-//   }
-// }
-
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
