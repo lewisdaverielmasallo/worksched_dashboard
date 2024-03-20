@@ -110,14 +110,10 @@ class LayoutProvider {
           clipBehavior: Clip.antiAlias,
           child: Row(
             children: [
-              // Image(
-              //   image: AssetImage(
-              //     'assets/res/topnav/${title.toLowerCase().replaceAll(" ", "_")}1024x1024.png',
-              //   ),
-              //   width: 100,
-              // ),
-              const SizedBox(
-                height: 150,
+              Image(
+                image: AssetImage(
+                  'assets/res/topnav/${title.toLowerCase().replaceAll(" ", "_")}1024x1024.png',
+                ),
                 width: 150,
               ),
               Align(
