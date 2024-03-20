@@ -74,14 +74,22 @@ class LayoutProvider {
   static List<Widget> getLeftNavs(BuildContext context) {
     return [
       for (String title in leftNav)
-        ListTile(
-          title: Text(title),
-          leading: Image(
-            image: AssetImage(
-                'assets/leftnav/${title.toLowerCase().replaceAll(" ", "_")}18x18.png'),
-            height: 50,
-            width: 50,
+        Card(
+          elevation: CustomTheme.cardElevation,
+          color: CustomTheme.colorBlueMain,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.zero),
           ),
+          margin: const EdgeInsets.only(right: 4),
+          child: Row(children: [
+            Image(
+              image: AssetImage(
+                  'assets/leftnav/${title.toLowerCase().replaceAll(" ", "_")}18x18.png'),
+              height: 50,
+              width: 50,
+            ),
+            Text(title, style: Theme.of(context).textTheme.labelMedium),
+          ]),
         ),
     ];
   }
@@ -93,7 +101,7 @@ class LayoutProvider {
           elevation: CustomTheme.cardElevation,
           surfaceTintColor: CustomTheme.background,
           child: Container(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
             height: 170,
             width: 444,
             child: Column(
@@ -116,23 +124,28 @@ class LayoutProvider {
         Card(
           elevation: CustomTheme.cardElevation,
           surfaceTintColor: CustomTheme.background,
+          clipBehavior: Clip.antiAlias,
           child: SizedBox(
             height: 92,
             width: 282,
             child: Row(
               children: [
-                ClipRect(
-                  clipBehavior: Clip.antiAlias,
-                  child: Transform(
-                    transform: Matrix4.rotationZ(0.188)..translate(-40, -20, 0),
-                    origin: const Offset(-50, 10),
-                    child: Image(
-                      image: AssetImage(
-                        'assets/topnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+                SizedBox(
+                  height: 100,
+                  width: 154,
+                  child: OverflowBox(
+                    maxWidth: 160,
+                    maxHeight: 160,
+                    child: Transform(
+                      transform: Matrix4.rotationZ(0.188),
+                      child: Image(
+                        image: AssetImage(
+                          'assets/topnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+                        ),
+                        height: 200,
+                        width: 200,
+                        fit: BoxFit.contain,
                       ),
-                      height: 154,
-                      width: 154,
-                      fit: BoxFit.contain,
                     ),
                   ),
                 ),

@@ -7,12 +7,12 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
+    return const Row(children: [
       Expanded(
         flex: 4,
-        child: Container(),
+        child: LeftNav(),
       ),
-      const Expanded(
+      Expanded(
         flex: 16,
         child: SingleChildScrollView(
           child: Padding(
@@ -78,8 +78,30 @@ class LeftNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      children: LayoutProvider.getLeftNavs(context),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Card(
+          elevation: CustomTheme.cardElevation,
+          color: CustomTheme.colorBlueMain,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.zero),
+          ),
+          margin: const EdgeInsets.only(right: 4),
+          child: SizedBox(
+            height: 100,
+            child: Center(
+              child: Text("Worksched",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(color: Colors.white)),
+            ),
+          ),
+        ),
+        ...LayoutProvider.getLeftNavs(context),
+        const Card(),
+      ],
     );
   }
 }
@@ -106,8 +128,12 @@ class TopNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> list = LayoutProvider.getTopNavs(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Wrap(
+      runAlignment: WrapAlignment.center,
+      alignment: WrapAlignment.center,
+      direction: Axis.vertical,
+      runSpacing: 40,
+      spacing: 20,
       children: list,
     );
   }
