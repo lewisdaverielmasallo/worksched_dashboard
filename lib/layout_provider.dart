@@ -28,10 +28,10 @@ class LayoutProvider {
   ];
 
   static List<String> midNav = [
-    // "Bundy",
-    // "Balances",
-    // "Anouncements",
-    // "Survey",
+    "Bundy",
+    "Balances",
+    "Anouncements",
+    "Survey",
   ];
 
   static List<String> topNav = [
@@ -43,16 +43,24 @@ class LayoutProvider {
   static List<Widget> getBottomNav(BuildContext context) {
     return [
       for (String title in bottomNav)
-        SizedBox(
-          width: 200,
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(20),
+            ),
+            border: Border.all(color: Theme.of(context).shadowColor, width: 1),
+          ),
+          height: 134,
+          width: 150,
           child: Column(
             children: [
               Image(
                 image: AssetImage(
-                  'assets/res/bottomnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+                  'assets/bottomnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
                 ),
-                height: 200,
-                width: 200,
+                height: 100,
+                width: 100,
+                fit: BoxFit.contain,
               ),
               Text(
                 title,
@@ -71,7 +79,7 @@ class LayoutProvider {
           title: Text(title),
           leading: Image(
             image: AssetImage(
-                'assets/res/leftnav/${title.toLowerCase().replaceAll(" ", "_")}18x18.png'),
+                'assets/leftnav/${title.toLowerCase().replaceAll(" ", "_")}18x18.png'),
             height: 50,
             width: 50,
           ),
@@ -82,33 +90,54 @@ class LayoutProvider {
   static List<Widget> getMidNavs(BuildContext context) {
     return [
       for (String title in midNav)
-        ListTile(
-          title: Text(title),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(24),
+            ),
+            border: Border.all(color: Theme.of(context).shadowColor, width: 1),
+          ),
+          height: 178,
+          width: 454,
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ),
     ];
   }
 
   static List<Widget> getTopNavs(BuildContext context) {
+    // image height = 100
+    // image width = 154
+    // tile height 100
+    // tile width = 290
+    // image rotationZ 18.8
     return [
       for (String title in topNav)
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(
               Radius.circular(24),
             ),
-            border: Border.all(color: Colors.grey, width: 1),
+            border: Border.all(color: Theme.of(context).shadowColor, width: 1),
           ),
           height: 100,
           width: 290,
           clipBehavior: Clip.antiAlias,
           child: Row(
             children: [
-              Image(
-                image: AssetImage(
-                  'assets/res/topnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+              Transform(
+                transform: Matrix4.rotationZ(0.188)..translate(-40, -20, 0),
+                origin: const Offset(-50, 10),
+                child: Image(
+                  image: AssetImage(
+                    'assets/topnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+                  ),
+                  height: 154,
+                  width: 154,
+                  fit: BoxFit.contain,
                 ),
-                width: 150,
               ),
               Align(
                 alignment: Alignment.center,

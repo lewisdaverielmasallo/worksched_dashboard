@@ -14,20 +14,33 @@ class DashboardView extends StatelessWidget {
       const Expanded(
         flex: 16,
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 72,
-              ),
-              SizedBox(
-                height: 100,
-                child: TopNav(),
-              ),
-              SizedBox(
-                height: 400,
-                child: BottomNav(),
-              ),
-            ],
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 72),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 52,
+                ),
+                SizedBox(height: 20),
+                SizedBox(
+                  height: 100,
+                  child: TopNav(),
+                ),
+                SizedBox(height: 20),
+                SizedBox(
+                  height: 378,
+                  child: MidNav(),
+                ),
+                SizedBox(height: 20),
+                SizedBox(
+                  height: 335,
+                  child: BottomNav(),
+                ),
+                SizedBox(
+                  height: 54,
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -40,8 +53,23 @@ class BottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      children: LayoutProvider.getBottomNav(context),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(
+          Radius.circular(24),
+        ),
+        border: Border.all(color: Theme.of(context).shadowColor, width: 1),
+      ),
+      padding: const EdgeInsets.fromLTRB(14, 14, 0, 14),
+      height: 378,
+      width: double.infinity,
+      child: Wrap(
+        alignment: WrapAlignment.start,
+        runAlignment: WrapAlignment.start,
+        runSpacing: 40,
+        spacing: 40,
+        children: LayoutProvider.getBottomNav(context),
+      ),
     );
   }
 }
@@ -63,6 +91,11 @@ class MidNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Wrap(
+      runAlignment: WrapAlignment.center,
+      alignment: WrapAlignment.center,
+      direction: Axis.vertical,
+      runSpacing: 40,
+      spacing: 20,
       children: LayoutProvider.getMidNavs(context),
     );
   }
@@ -74,9 +107,8 @@ class TopNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> list = LayoutProvider.getTopNavs(context);
-    return ListView(
-      scrollDirection: Axis.horizontal,
-      shrinkWrap: true,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: list,
     );
   }
