@@ -1,0 +1,41 @@
+name: worksched_dashboard
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.1.5 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^2.0.10+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    # dashboard sample
+    - assets/res/dashboard.png
+
+    # other icons
+    # - assets/res/topnav/analytics1024x1024.png
+    # - assets/res/topnav/calendar1024x1024.png
+    # - assets/res/topnav/my_team1024x1024.png
+
+    # - assets/res/bottomnav/timelog1024x1024.png
+    # - assets/res/bottomnav/change_shift1024x1024.png
+    # - assets/res/bottomnav/change_day_type1024x1024.png
+    # - assets/res/bottomnav/official_business1024x1024.png
+    # - assets/res/bottomnav/leaves1024x1024.png
+    # - assets/res/bottomnav/reimbusement1024x1024.png
+    # - assets/res/bottomnav/overtime1024x1024.png
+    # - assets/res/bottomnav/work_from_home1024x1024.png
+    # - assets/res/bottomnav/undertime1024x1024.png
+    # - assets/res/bottomnav/my_request1024x1024.png
