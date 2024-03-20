@@ -2,29 +2,29 @@ import 'package:flutter/material.dart';
 
 class LayoutProvider {
   static List<String> bottomNav = [
-    // "Timelog",
-    // "Change Shift",
-    // "Change Day Type",
-    // "Official Business",
-    // "Leaves",
-    // "Reimburstment",
-    // "Overtime",
-    // "Work From Home",
-    // "Undertime",
-    // "My Request"
+    "Timelog",
+    "Change Shift",
+    "Change Day Type",
+    "Official Business",
+    "Leaves",
+    "Reimburstment",
+    "Overtime",
+    "Work From Home",
+    "Undertime",
+    "My Request"
   ];
 
   static List<String> leftNav = [
-    // "Dashboard",
-    // "Time Sheet",
-    // "Date Time Record",
-    // "Leave Ledger",
-    // "Loan Ledger",
-    // "Performance Evaluation",
-    // "On Boarding",
-    // "FAQs",
-    // "Accountability Scanner",
-    // "Reports",
+    "Dashboard",
+    "Time Sheet",
+    "Daily Time Record",
+    "Leave Ledger",
+    "Loan Ledger",
+    "Performance Evaluation",
+    "On Boarding",
+    "FAQs",
+    "Accountability Scanner",
+    "Reports",
   ];
 
   static List<String> midNav = [

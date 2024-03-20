@@ -37,16 +37,16 @@ flutter:
     - assets/bottomnav/my_request32x32.png
 
     # leftnav
-    # - assets/leftnav/dashboard32x32.png
-    # - assets/leftnav/time_sheet32x32.png
-    # - assets/leftnav/date_time_record32x32.png
-    # - assets/leftnav/leave_ledger32x32.png
-    # - assets/leftnav/load_ledger32x32.png
-    # - assets/leftnav/performance_evaluation32x32.png
-    # - assets/leftnav/on_boarding32x32.png
-    # - assets/leftnav/faqs32x32.png
-    # - assets/leftnav/accountability_scanner32x32.png
-    # - assets/leftnav/reports32x32.png
+    - assets/leftnav/dashboard18x18.png
+    - assets/leftnav/time_sheet18x18.png
+    - assets/leftnav/daily_time_record18x18.png
+    - assets/leftnav/leave_ledger18x18.png
+    - assets/leftnav/loan_ledger18x18.png
+    - assets/leftnav/performance_evaluation18x18.png
+    - assets/leftnav/on_boarding18x18.png
+    - assets/leftnav/faqs18x18.png
+    - assets/leftnav/accountability_scanner18x18.png
+    - assets/leftnav/reports18x18.png
 
     # midnav
     # - assets/midnav/bundy32x32.png
