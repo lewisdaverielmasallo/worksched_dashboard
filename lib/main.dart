@@ -39,7 +39,6 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: is_static ? null : AppBar(),
       body: is_static ? bodyImage() : const DashboardView(),
       floatingActionButton: FloatingActionButton(
         child: Icon(is_static ? Icons.dashboard : Icons.image),
