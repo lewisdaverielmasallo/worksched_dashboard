@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:worksched_dashboard/themes.dart';
 
 class LayoutProvider {
   static List<String> bottomNav = [
@@ -43,30 +44,28 @@ class LayoutProvider {
   static List<Widget> getBottomNav(BuildContext context) {
     return [
       for (String title in bottomNav)
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20),
-            ),
-            border: Border.all(color: Theme.of(context).shadowColor, width: 1),
-          ),
-          height: 134,
-          width: 150,
-          child: Column(
-            children: [
-              Image(
-                image: AssetImage(
-                  'assets/bottomnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+        Card(
+          elevation: CustomTheme.cardElevation,
+          surfaceTintColor: CustomTheme.background,
+          child: SizedBox(
+            height: 126,
+            width: 142,
+            child: Column(
+              children: [
+                Image(
+                  image: AssetImage(
+                    'assets/bottomnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+                  ),
+                  height: 100,
+                  width: 100,
+                  fit: BoxFit.contain,
                 ),
-                height: 100,
-                width: 100,
-                fit: BoxFit.contain,
-              ),
-              Text(
-                title,
-                style: Theme.of(context).textTheme.titleSmall,
-              ),
-            ],
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
+              ],
+            ),
           ),
         ),
     ];
@@ -90,63 +89,62 @@ class LayoutProvider {
   static List<Widget> getMidNavs(BuildContext context) {
     return [
       for (String title in midNav)
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(24),
+        Card(
+          elevation: CustomTheme.cardElevation,
+          surfaceTintColor: CustomTheme.background,
+          child: Container(
+            padding: const EdgeInsets.all(8),
+            height: 170,
+            width: 444,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ],
             ),
-            border: Border.all(color: Theme.of(context).shadowColor, width: 1),
-          ),
-          height: 178,
-          width: 454,
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
     ];
   }
 
   static List<Widget> getTopNavs(BuildContext context) {
-    // image height = 100
-    // image width = 154
-    // tile height 100
-    // tile width = 290
-    // image rotationZ 18.8
     return [
       for (String title in topNav)
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(24),
-            ),
-            border: Border.all(color: Theme.of(context).shadowColor, width: 1),
-          ),
-          height: 100,
-          width: 290,
-          clipBehavior: Clip.antiAlias,
-          child: Row(
-            children: [
-              Transform(
-                transform: Matrix4.rotationZ(0.188)..translate(-40, -20, 0),
-                origin: const Offset(-50, 10),
-                child: Image(
-                  image: AssetImage(
-                    'assets/topnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+        Card(
+          elevation: CustomTheme.cardElevation,
+          surfaceTintColor: CustomTheme.background,
+          child: SizedBox(
+            height: 92,
+            width: 282,
+            child: Row(
+              children: [
+                ClipRect(
+                  clipBehavior: Clip.antiAlias,
+                  child: Transform(
+                    transform: Matrix4.rotationZ(0.188)..translate(-40, -20, 0),
+                    origin: const Offset(-50, 10),
+                    child: Image(
+                      image: AssetImage(
+                        'assets/topnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+                      ),
+                      height: 154,
+                      width: 154,
+                      fit: BoxFit.contain,
+                    ),
                   ),
-                  height: 154,
-                  width: 154,
-                  fit: BoxFit.contain,
                 ),
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  title,
-                  style: Theme.of(context).textTheme.titleLarge,
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    title,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
     ];

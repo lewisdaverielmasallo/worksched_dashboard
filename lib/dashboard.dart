@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:worksched_dashboard/layout_provider.dart';
+import 'package:worksched_dashboard/themes.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});
@@ -53,22 +54,20 @@ class BottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(24),
+    return Card(
+      elevation: CustomTheme.cardElevation,
+      surfaceTintColor: CustomTheme.background,
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+        height: 378,
+        width: double.infinity,
+        child: Wrap(
+          alignment: WrapAlignment.start,
+          runAlignment: WrapAlignment.start,
+          runSpacing: 40,
+          spacing: 40,
+          children: LayoutProvider.getBottomNav(context),
         ),
-        border: Border.all(color: Theme.of(context).shadowColor, width: 1),
-      ),
-      padding: const EdgeInsets.fromLTRB(14, 14, 0, 14),
-      height: 378,
-      width: double.infinity,
-      child: Wrap(
-        alignment: WrapAlignment.start,
-        runAlignment: WrapAlignment.start,
-        runSpacing: 40,
-        spacing: 40,
-        children: LayoutProvider.getBottomNav(context),
       ),
     );
   }
