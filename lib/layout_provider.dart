@@ -74,22 +74,26 @@ class LayoutProvider {
   static List<Widget> getLeftNavs(BuildContext context) {
     return [
       for (String title in leftNav)
-        Card(
-          elevation: CustomTheme.cardElevation,
-          color: CustomTheme.colorBlueMain,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.zero),
+        SizedBox(
+          height: 45,
+          child: Row(
+            children: [
+              const SizedBox(width: 38),
+              Image(
+                image: AssetImage(
+                    'assets/leftnav/${title.toLowerCase().replaceAll(" ", "_")}18x18.png'),
+                height: 25,
+                width: 25,
+                fit: BoxFit.fill,
+              ),
+              const SizedBox(width: 8),
+              Text(title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelMedium!
+                      .copyWith(fontWeight: FontWeight.w100)),
+            ],
           ),
-          margin: const EdgeInsets.only(right: 4),
-          child: Row(children: [
-            Image(
-              image: AssetImage(
-                  'assets/leftnav/${title.toLowerCase().replaceAll(" ", "_")}18x18.png'),
-              height: 50,
-              width: 50,
-            ),
-            Text(title, style: Theme.of(context).textTheme.labelMedium),
-          ]),
         ),
     ];
   }

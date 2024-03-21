@@ -60,7 +60,7 @@ class BottomNav extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
         height: 378,
-        width: double.infinity,
+        width: 950,
         child: Wrap(
           alignment: WrapAlignment.start,
           runAlignment: WrapAlignment.start,
@@ -79,28 +79,35 @@ class LeftNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.max,
       children: [
-        Card(
-          elevation: CustomTheme.cardElevation,
-          color: CustomTheme.colorBlueMain,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.zero),
-          ),
-          margin: const EdgeInsets.only(right: 4),
-          child: SizedBox(
-            height: 100,
-            child: Center(
-              child: Text("Worksched",
+        SizedBox(
+          height: 148,
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(width: 20),
+                Text(
+                  "Work",
                   style: Theme.of(context)
                       .textTheme
                       .titleLarge!
-                      .copyWith(color: Colors.white)),
+                      .copyWith(fontSize: 32, fontWeight: FontWeight.w900),
+                ),
+                Text(
+                  "sched",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(fontSize: 32, fontWeight: FontWeight.w200),
+                ),
+              ],
             ),
           ),
         ),
         ...LayoutProvider.getLeftNavs(context),
-        const Card(),
       ],
     );
   }

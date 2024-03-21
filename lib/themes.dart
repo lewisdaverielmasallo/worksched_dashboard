@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomTheme {
   static final Color colorBlueMain = Colors.blue[800]!;
-  static const double cardElevation = 5;
+  static const double cardElevation = 8;
 
   static const Color background = Colors.white;
 
@@ -21,15 +21,18 @@ class CustomTheme {
   static final TextStyle titlelarge = TextStyle(
       color: CustomTheme.colorBlueMain,
       fontSize: 24,
-      fontWeight: FontWeight.w700);
+      fontWeight: FontWeight.w500);
   static const TextStyle titlemedium =
-      TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600);
+      TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500);
   static final TextStyle titlesmall = TextStyle(
       color: CustomTheme.colorBlueMain,
       fontSize: 12,
       fontWeight: FontWeight.w900);
-  static const TextStyle labelmedium =
-      TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700);
+  static final TextStyle labelmedium = TextStyle(
+    color: CustomTheme.colorBlueMain,
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+  );
 
   static ThemeData lightThemeData(BuildContext context) {
     return ThemeData(
