@@ -172,6 +172,18 @@ class LayoutProvider {
         ),
     ];
   }
+
+  static double reduceScreen({
+    required BuildContext context,
+    List<double>? widthConstrains,
+  }) {
+    double screen = MediaQuery.of(context).size.width;
+    if (widthConstrains != null) {
+      return screen -
+          widthConstrains.reduce((value, element) => value + element);
+    }
+    return screen;
+  }
 }
 
 class Bundy extends Container {
