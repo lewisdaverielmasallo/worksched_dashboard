@@ -50,8 +50,7 @@ class LayoutProvider {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
-              foregroundColor: Colors.grey[900],
-              backgroundColor: Colors.white,
+              backgroundColor: const Color.fromARGB(25, 21, 101, 192),
               alignment: Alignment.center,
               elevation: 0.0,
               shape: RoundedRectangleBorder(
@@ -111,7 +110,7 @@ class LayoutProvider {
       for (String title in leftNav.keys)
         ListTile(
           dense: true,
-          hoverColor: CustomTheme.colorBlueMain.withOpacity(0.2),
+          hoverColor: const Color.fromARGB(25, 21, 101, 192),
           focusColor: Colors.blue,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -133,7 +132,7 @@ class LayoutProvider {
             leftNav = leftNav.map((title, selected) => MapEntry(title, false));
 
             leftNav[title] = true;
-            //(context as Element).markNeedsBuild();
+            (context as Element).markNeedsBuild();
           },
         ),
     ];
