@@ -57,10 +57,8 @@ class BottomNav extends StatelessWidget {
     return Card(
       elevation: CustomTheme.cardElevation,
       surfaceTintColor: CustomTheme.background,
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
-        height: 378,
-        width: 950,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
         child: Wrap(
           alignment: WrapAlignment.start,
           runAlignment: WrapAlignment.start,
@@ -81,15 +79,13 @@ class LeftNav extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.only(left: 8),
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 0, 16),
-          child: Text(
-            'WorkSched',
-            style: TextStyle(
-              fontFamily: 'Aremat',
-              color: Colors.blue[800],
-              fontSize: 30.0,
-            ),
+        Text(
+          'WorkSched',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: 'Aremat',
+            color: Colors.blue[800],
+            fontSize: 30.0,
           ),
         ),
         ...LayoutProvider.getLeftNavs(context),
@@ -119,14 +115,13 @@ class TopNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> list = LayoutProvider.getTopNavs(context);
     return Wrap(
       runAlignment: WrapAlignment.center,
       alignment: WrapAlignment.center,
       direction: Axis.vertical,
       runSpacing: 40,
       spacing: 20,
-      children: list,
+      children: LayoutProvider.getTopNavs(context),
     );
   }
 }

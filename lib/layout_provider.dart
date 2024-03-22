@@ -110,12 +110,11 @@ class LayoutProvider {
         Card(
           elevation: CustomTheme.cardElevation,
           surfaceTintColor: CustomTheme.background,
-          child: Container(
+          child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
-            height: 170,
-            width: 444,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   title,
@@ -172,39 +171,6 @@ class LayoutProvider {
           ),
         ),
     ];
-  }
-}
-
-class Survey extends Container {
-  Survey({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.grey,
-      child: Container(),
-    );
-  }
-}
-
-class Anouncements extends Container {
-  Anouncements({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.grey,
-      child: Container(),
-    );
-  }
-}
-
-class Balances extends Container {
-  Balances({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.grey,
-      child: Container(),
-    );
   }
 }
 
@@ -287,16 +253,68 @@ class Bundy extends Container {
                 ),
               ),
               Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  OutlinedButton(onPressed: () {}, child: const Text("IN")),
-                  const SizedBox(width: 20),
-                  OutlinedButton(onPressed: () {}, child: const Text("OUT")),
+                  OutlinedButton(
+                    onPressed: () {},
+                    child: Text(
+                      "IN",
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(color: CustomTheme.colorBlueMain),
+                    ),
+                  ),
+                  OutlinedButton(
+                    onPressed: () {},
+                    child: Text(
+                      "OUT",
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(color: CustomTheme.colorBlueMain),
+                    ),
+                  ),
                 ],
               ),
             ],
           ),
         ),
       ],
+    );
+  }
+}
+
+class Anouncements extends Container {
+  Anouncements({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [const Text("TEST")],
+    );
+  }
+}
+
+class Survey extends Container {
+  Survey({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.grey,
+      child: Container(),
+    );
+  }
+}
+
+class Balances extends Container {
+  Balances({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.grey,
+      child: Container(),
     );
   }
 }
