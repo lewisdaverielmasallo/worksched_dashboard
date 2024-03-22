@@ -78,32 +78,17 @@ class LeftNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
+    return ListView(
+      padding: const EdgeInsets.only(left: 8),
       children: [
-        SizedBox(
-          height: 148,
-          child: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(width: 20),
-                Text(
-                  "Work",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(fontSize: 32, fontWeight: FontWeight.w900),
-                ),
-                Text(
-                  "sched",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(fontSize: 32, fontWeight: FontWeight.w200),
-                ),
-              ],
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 0, 16),
+          child: Text(
+            'WorkSched',
+            style: TextStyle(
+              fontFamily: 'Aremat',
+              color: Colors.blue[800],
+              fontSize: 30.0,
             ),
           ),
         ),
