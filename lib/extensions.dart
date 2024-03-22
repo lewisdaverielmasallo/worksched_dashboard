@@ -5,7 +5,7 @@ extension Neumorphism on Widget {
     double borderRadius = 10.0,
     Offset offset = const Offset(4, 4),
     double blurRadius = 10,
-    Color topShadowColor = Colors.white60,
+    Color topShadowColor = Colors.white,
     Color bottomShadowColor = const Color.fromARGB(37, 32, 65, 147),
     // Color bottomShadowColor = const Color(0x26234395),
   }) {

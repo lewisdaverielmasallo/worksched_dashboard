@@ -46,34 +46,36 @@ class LayoutProvider {
   static List<Widget> getBottomNav(BuildContext context) {
     return [
       for (String title in bottomNav)
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
-            foregroundColor: Colors.grey[900],
-            backgroundColor: Colors.white,
-            alignment: Alignment.center,
-            elevation: 0.0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24.0),
+        RepaintBoundary(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+              foregroundColor: Colors.grey[900],
+              backgroundColor: Colors.white,
+              alignment: Alignment.center,
+              elevation: 0.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24.0),
+              ),
             ),
-          ),
-          onPressed: () {},
-          child: SizedBox(
-            height: 100,
-            width: 120,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image(
-                  image: AssetImage(
-                    'assets/bottomnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+            onPressed: () {},
+            child: SizedBox(
+              height: 100,
+              width: 120,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image(
+                    image: AssetImage(
+                      'assets/bottomnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
+                    ),
+                    height: 80,
+                    width: 80,
                   ),
-                  height: 80,
-                  width: 80,
-                ),
-                const SizedBox(height: 4),
-                Text(title, overflow: TextOverflow.ellipsis),
-              ],
+                  const SizedBox(height: 4),
+                  Text(title, overflow: TextOverflow.ellipsis),
+                ],
+              ),
             ),
           ),
         ).addNeumorphism(),
@@ -131,7 +133,7 @@ class LayoutProvider {
             leftNav = leftNav.map((title, selected) => MapEntry(title, false));
 
             leftNav[title] = true;
-            (context as Element).markNeedsBuild();
+            //(context as Element).markNeedsBuild();
           },
         ),
     ];
@@ -140,21 +142,23 @@ class LayoutProvider {
   static List<Widget> getMidNavs(BuildContext context) {
     return [
       for (String title in midNav.keys)
-        Card(
-          elevation: CustomTheme.cardElevation,
-          surfaceTintColor: CustomTheme.background,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                SizedBox(height: 120, width: 395, child: midNav[title]!)
-              ],
+        RepaintBoundary(
+          child: Card(
+            elevation: CustomTheme.cardElevation,
+            surfaceTintColor: CustomTheme.background,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    title,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  SizedBox(height: 120, width: 395, child: midNav[title]!)
+                ],
+              ),
             ),
           ),
         ),
@@ -468,35 +472,33 @@ class Balances extends Container {
   @override
   Widget build(BuildContext context) {
     ScrollController scrollCntrlr = ScrollController();
-    return Expanded(
-      child: Scrollbar(
+    return Scrollbar(
+      controller: scrollCntrlr,
+      thumbVisibility: true,
+      child: ListView.builder(
         controller: scrollCntrlr,
-        thumbVisibility: true,
-        child: ListView.builder(
-          controller: scrollCntrlr,
-          itemCount: data.length,
-          itemBuilder: (context, index) {
-            var item = data[index];
-            return ListTile(
-              leading: CircleAvatar(
-                backgroundColor: const Color.fromARGB(25, 21, 101, 192),
-                foregroundColor: Colors.blue[800],
-                radius: 20,
-                child: Text(
-                  item.key,
-                  style: TextStyle(
-                    color: Colors.blue[800],
-                    fontWeight: FontWeight.w700,
-                    fontSize: 14,
-                  ),
+        itemCount: data.length,
+        itemBuilder: (context, index) {
+          var item = data[index];
+          return ListTile(
+            leading: CircleAvatar(
+              backgroundColor: const Color.fromARGB(25, 21, 101, 192),
+              foregroundColor: Colors.blue[800],
+              radius: 20,
+              child: Text(
+                item.key,
+                style: TextStyle(
+                  color: Colors.blue[800],
+                  fontWeight: FontWeight.w700,
+                  fontSize: 14,
                 ),
               ),
-              title: Text(item.value.key),
-              trailing: Text(item.value.value.toStringAsFixed(2)),
-              onTap: () {},
-            );
-          },
-        ),
+            ),
+            title: Text(item.value.key),
+            trailing: Text(item.value.value.toStringAsFixed(2)),
+            onTap: () {},
+          );
+        },
       ),
     );
   }

@@ -13,9 +13,6 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // checkerboardOffscreenLayers: true,
-      // debugShowMaterialGrid: true,
-      // showPerformanceOverlay: true,
       title: 'Worksched',
       theme: CustomTheme.lightThemeData(context),
       home: const Dashboard(),
