@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomTheme {
+  static const double cardElevation = 4;
+  static const double corner = 12;
   static final Color colorBlueMain = Colors.blue[800]!;
-  static const double cardElevation = 8;
+
+  static const Color colorBlueFaint = Color.fromARGB(25, 21, 101, 192);
+  static final RoundedRectangleBorder innerRoundedCorner =
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(corner / 2));
+
+  static final RoundedRectangleBorder roundedCorner =
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(corner));
 
   static const Color background = Colors.white;
 
@@ -10,12 +18,6 @@ class CustomTheme {
     surfaceTintColor: Colors.white,
     shadowColor: Colors.black.withOpacity(0.5),
     elevation: 0,
-  );
-
-  static ShapeBorder cardBorder = const RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(
-      Radius.circular(24),
-    ),
   );
 
   static final TextStyle titlelarge = TextStyle(
@@ -43,10 +45,10 @@ class CustomTheme {
           titleMedium: titlemedium,
           titleSmall: titlesmall,
           labelMedium: labelmedium),
-      cardTheme: Theme.of(context).cardTheme.copyWith(shape: cardBorder),
+      cardTheme: Theme.of(context).cardTheme.copyWith(shape: roundedCorner),
       shadowColor: Colors.grey[600],
       colorScheme: ColorScheme.fromSeed(
-        seedColor: CustomTheme.colorBlueMain!,
+        seedColor: CustomTheme.colorBlueMain,
         brightness: Brightness.light,
       ),
     );

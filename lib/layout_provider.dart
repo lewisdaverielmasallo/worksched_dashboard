@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:worksched_dashboard/extensions.dart';
 import 'package:worksched_dashboard/themes.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 class LayoutProvider {
   static List<String> bottomNav = [
-    "Timelog",
-    "Change Shift",
-    "Change Day Type",
-    "Official Business",
-    "Leaves",
+    "Timelog", // Alternate
     "Reimburstment",
+    "Change Shift",
     "Overtime",
+    "Change Day Type",
     "Work From Home",
+    "Official Business",
     "Undertime",
-    "My Request"
+    "Leaves",
+    "My Request",
   ];
 
   static Map<String, bool> leftNav = {
@@ -46,38 +44,37 @@ class LayoutProvider {
   static List<Widget> getBottomNav(BuildContext context) {
     return [
       for (String title in bottomNav)
-        RepaintBoundary(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
-              backgroundColor: const Color.fromARGB(25, 21, 101, 192),
-              alignment: Alignment.center,
-              elevation: 0.0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24.0),
-              ),
-            ),
-            onPressed: () {},
-            child: SizedBox(
-              height: 100,
-              width: 120,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image(
-                    image: AssetImage(
-                      'assets/bottomnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
-                    ),
-                    height: 80,
-                    width: 80,
+        IconButton.filled(
+          style: IconButton.styleFrom(
+            padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+            backgroundColor: CustomTheme.colorBlueFaint,
+            alignment: Alignment.center,
+            elevation: 0.0,
+            shape: CustomTheme.roundedCorner,
+          ),
+          onPressed: () {
+            print("TEST");
+          },
+          hoverColor: CustomTheme.colorBlueFaint,
+          icon: SizedBox(
+            height: 85,
+            width: 120,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image(
+                  image: AssetImage(
+                    'assets/bottomnav/${title.toLowerCase().replaceAll(" ", "_")}32x32.png',
                   ),
-                  const SizedBox(height: 4),
-                  Text(title, overflow: TextOverflow.ellipsis),
-                ],
-              ),
+                  height: 60,
+                  width: 60,
+                ),
+                const SizedBox(height: 4),
+                Text(title, overflow: TextOverflow.ellipsis),
+              ],
             ),
           ),
-        ).addNeumorphism(),
+        ),
     ];
     // Card(
     //         elevation: CustomTheme.cardElevation,
@@ -110,14 +107,12 @@ class LayoutProvider {
       for (String title in leftNav.keys)
         ListTile(
           dense: true,
-          hoverColor: const Color.fromARGB(25, 21, 101, 192),
+          hoverColor: CustomTheme.colorBlueFaint,
           focusColor: Colors.blue,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
+          shape: CustomTheme.innerRoundedCorner,
           selected: leftNav[title]!,
-          selectedColor: Colors.white,
-          selectedTileColor: Colors.blue[800],
+          selectedColor: CustomTheme.background,
+          selectedTileColor: CustomTheme.colorBlueMain,
           title: Text(title),
           leading: Image(
             image: AssetImage(
@@ -141,23 +136,23 @@ class LayoutProvider {
   static List<Widget> getMidNavs(BuildContext context) {
     return [
       for (String title in midNav.keys)
-        RepaintBoundary(
-          child: Card(
-            elevation: CustomTheme.cardElevation,
-            surfaceTintColor: CustomTheme.background,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    title,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  SizedBox(height: 120, width: 395, child: midNav[title]!)
-                ],
-              ),
+        Card(
+          elevation: CustomTheme.cardElevation,
+          shape: CustomTheme.roundedCorner,
+          color: CustomTheme.background,
+          surfaceTintColor: CustomTheme.background,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                SizedBox(height: 120, width: 395, child: midNav[title]!)
+              ],
             ),
           ),
         ),
@@ -167,26 +162,24 @@ class LayoutProvider {
   static List<Widget> getTopNavs(BuildContext context) {
     return [
       for (String title in topNav)
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.zero,
-            foregroundColor: Colors.grey[900],
-            backgroundColor: Colors.white,
-            alignment: Alignment.center,
-            elevation: 0.0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24.0),
+        Card(
+          elevation: CustomTheme.cardElevation,
+          color: CustomTheme.background,
+          shape: CustomTheme.roundedCorner,
+          surfaceTintColor: CustomTheme.background,
+          clipBehavior: Clip.antiAlias,
+          child: IconButton(
+            style: IconButton.styleFrom(
+              padding: EdgeInsets.zero,
+              alignment: Alignment.center,
+              elevation: 0.0,
+              shape: CustomTheme.roundedCorner,
             ),
-          ),
-          onPressed: () {},
-          child: Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(24.0),
-              ),
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: SizedBox(
+            hoverColor: CustomTheme.colorBlueFaint,
+            onPressed: () {
+              print("Test");
+            },
+            icon: SizedBox(
               width: 282,
               child: Row(
                 mainAxisSize: MainAxisSize.max,
@@ -221,7 +214,7 @@ class LayoutProvider {
               ),
             ),
           ),
-        ).addNeumorphism(),
+        ),
       // Card(
       //   elevation: CustomTheme.cardElevation,
       //   surfaceTintColor: CustomTheme.background,
@@ -327,19 +320,25 @@ class Bundy extends Container {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 6),
-              Text(
-                "Day Type",
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w500,
-                    ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Text(
+                  "Day Type",
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                      ),
+                ),
               ),
-              Text(
-                "Regular day",
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w200,
-                    ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Text(
+                  "Regular day",
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w200,
+                      ),
+                ),
               ),
               Align(
                 alignment: Alignment.center,
@@ -415,15 +414,17 @@ class Anouncements extends Container {
       controller: controller,
       thumbVisibility: true,
       child: ListView(
+        padding: const EdgeInsets.only(right: 8),
         controller: controller,
         children: [
           for (String key in announcements.keys)
             Container(
-              padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-              margin: const EdgeInsets.fromLTRB(0, 0, 8, 8),
+              padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+              margin: const EdgeInsets.only(bottom: 8),
               decoration: const BoxDecoration(
-                color: Color.fromARGB(10, 21, 101, 192),
-                borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                color: CustomTheme.colorBlueFaint,
+                borderRadius:
+                    BorderRadius.all(Radius.circular(CustomTheme.corner / 2)),
               ),
               child: Column(
                 children: [
@@ -474,30 +475,37 @@ class Balances extends Container {
     return Scrollbar(
       controller: scrollCntrlr,
       thumbVisibility: true,
-      child: ListView.builder(
-        controller: scrollCntrlr,
-        itemCount: data.length,
-        itemBuilder: (context, index) {
-          var item = data[index];
-          return ListTile(
-            leading: CircleAvatar(
-              backgroundColor: const Color.fromARGB(25, 21, 101, 192),
-              foregroundColor: Colors.blue[800],
-              radius: 20,
-              child: Text(
-                item.key,
-                style: TextStyle(
-                  color: Colors.blue[800],
-                  fontWeight: FontWeight.w700,
-                  fontSize: 14,
+      child: Material(
+        child: ListView.builder(
+          padding: const EdgeInsets.only(right: 8),
+          controller: scrollCntrlr,
+          itemCount: data.length,
+          itemBuilder: (context, index) {
+            var item = data[index];
+            return ListTile(
+              shape: CustomTheme.innerRoundedCorner,
+              leading: CircleAvatar(
+                backgroundColor: CustomTheme.colorBlueFaint,
+                foregroundColor: CustomTheme.colorBlueMain,
+                radius: 20,
+                child: Text(
+                  item.key,
+                  style: TextStyle(
+                    color: CustomTheme.colorBlueMain,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                  ),
                 ),
               ),
-            ),
-            title: Text(item.value.key),
-            trailing: Text(item.value.value.toStringAsFixed(2)),
-            onTap: () {},
-          );
-        },
+              hoverColor: CustomTheme.colorBlueFaint,
+              title: Text(item.value.key),
+              trailing: Text(item.value.value.toStringAsFixed(2)),
+              onTap: () {
+                print("TEST");
+              },
+            );
+          },
+        ),
       ),
     );
   }
@@ -527,54 +535,29 @@ class Survey extends Container {
   @override
   Widget build(BuildContext context) {
     ScrollController scrollCntrlr = ScrollController();
-    return Column(
-      children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircularPercentIndicator(
-              radius: 22.0,
-              lineWidth: 6.0,
-              percent:
-                  0.25, //(state.completed.toDouble() / state.list.length.toDouble()),
-              center: const Text(
-                "25%", // "${((state.completed.toDouble() / state.list.length.toDouble()) * 100).toStringAsFixed(2)}%",
-                style: TextStyle(fontSize: 10),
-              ),
-              animation: true,
-              progressColor: Colors.blue[800],
-              backgroundColor: const Color.fromARGB(25, 21, 101, 192),
-            ),
-            const SizedBox(width: 12),
-            const FittedBox(
-              child: Text(
-                "1 of 4 survey completed", //'${state.completed} of ${state.list.length} survey completed.',
-                // style: Theme.of(context).textTheme.caption,
-              ),
-            ),
-          ],
-        ),
-        Expanded(
-          child: Scrollbar(
-            controller: scrollCntrlr,
-            thumbVisibility: true,
-            child: ListView.builder(
-              controller: scrollCntrlr,
-              itemCount: 4, //state.list.length,
-              itemBuilder: (context, index) {
-                var item = data[index];
-                return ListTile(
-                  title: Text(item.key),
-                  subtitle: Text(item.value.key),
-                  trailing: chipStatus(item.value.value),
-                  onTap: () {},
-                );
+    return Scrollbar(
+      controller: scrollCntrlr,
+      thumbVisibility: true,
+      child: Material(
+        child: ListView.builder(
+          controller: scrollCntrlr,
+          padding: const EdgeInsets.only(right: 8),
+          itemCount: 4,
+          itemBuilder: (context, index) {
+            var item = data[index];
+            return ListTile(
+              shape: CustomTheme.innerRoundedCorner,
+              hoverColor: CustomTheme.colorBlueFaint,
+              title: Text(item.key),
+              subtitle: Text(item.value.key),
+              trailing: chipStatus(item.value.value),
+              onTap: () {
+                print("TEST");
               },
-            ),
-          ),
+            );
+          },
         ),
-      ],
+      ),
     );
   }
 

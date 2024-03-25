@@ -54,17 +54,37 @@ class BottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScrollController controller = ScrollController();
     return Card(
       elevation: CustomTheme.cardElevation,
+      color: CustomTheme.background,
       surfaceTintColor: CustomTheme.background,
+      shape: CustomTheme.roundedCorner,
       child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Wrap(
-          alignment: WrapAlignment.start,
-          runAlignment: WrapAlignment.start,
-          runSpacing: 40,
-          spacing: 40,
-          children: LayoutProvider.getBottomNav(context),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Scrollbar(
+          thumbVisibility: true,
+          scrollbarOrientation: ScrollbarOrientation.top,
+          controller: controller,
+          child: Container(
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(CustomTheme.corner),
+            ),
+            margin: const EdgeInsets.symmetric(vertical: 10),
+            child: SingleChildScrollView(
+              controller: controller,
+              scrollDirection: Axis.horizontal,
+              child: Wrap(
+                alignment: WrapAlignment.start,
+                runAlignment: WrapAlignment.start,
+                direction: Axis.vertical,
+                runSpacing: 40,
+                spacing: 40,
+                children: LayoutProvider.getBottomNav(context),
+              ),
+            ),
+          ),
         ),
       ),
     );

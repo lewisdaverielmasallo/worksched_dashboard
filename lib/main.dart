@@ -20,6 +20,25 @@ class Main extends StatelessWidget {
   }
 }
 
+class WidthWrapper extends StatelessWidget {
+  final Widget child;
+  final Size size;
+  const WidthWrapper({
+    super.key,
+    required this.child,
+    this.size = const Size(1920, 1080),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: FittedBox(
+        child: SizedBox(height: size.height, width: size.width, child: child),
+      ),
+    );
+  }
+}
+
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
