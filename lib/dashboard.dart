@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:worksched_dashboard/layout_provider.dart';
+import 'package:worksched_dashboard/services/alerts_indicator.dart';
+import 'package:worksched_dashboard/services/my_profile_menu.dart';
+import 'package:worksched_dashboard/services/notification_icon.dart';
 import 'package:worksched_dashboard/themes.dart';
 
 class DashboardView extends StatelessWidget {
@@ -20,9 +23,9 @@ class DashboardView extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 52,
+                  height: 72,
+                  child: AppTopBar(),
                 ),
-                SizedBox(height: 20),
                 SizedBox(
                   height: 100,
                   child: TopNav(),
@@ -46,6 +49,28 @@ class DashboardView extends StatelessWidget {
         ),
       ),
     ]);
+  }
+}
+
+class AppTopBar extends StatelessWidget {
+  const AppTopBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(24, 16, 16, 16),
+      width: 1280,
+      child: const Row(
+        children: [
+          Spacer(),
+          AlertsIndicator(),
+          SizedBox(width: 6),
+          NotificationIcon(),
+          SizedBox(width: 12),
+          MyProfileMenu(),
+        ],
+      ),
+    );
   }
 }
 
@@ -99,15 +124,32 @@ class LeftNav extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.only(left: 8),
       children: [
-        Text(
-          'WorkSched',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontFamily: 'Aremat',
-            color: Colors.blue[800],
-            fontSize: 30.0,
-          ),
+        const SizedBox(height: 24),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Work',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Aremat',
+                color: Colors.blue[800],
+                fontSize: 30.0,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+            Text(
+              'Sched',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Aremat',
+                color: Colors.blue[800],
+                fontSize: 30.0,
+              ),
+            ),
+          ],
         ),
+        const SizedBox(height: 24),
         ...LayoutProvider.getLeftNavs(context),
       ],
     );

@@ -278,7 +278,7 @@ class Bundy extends Container {
       mainAxisSize: MainAxisSize.max,
       children: [
         Expanded(
-          flex: 4,
+          flex: 5,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -291,54 +291,58 @@ class Bundy extends Container {
               ),
               Text(
                 "Thursday",
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       fontSize: 12,
-                      fontWeight: FontWeight.w200,
+                      fontWeight: FontWeight.w500,
                     ),
               ),
               const SizedBox(height: 12),
               Text(
-                "Shift Schedule",
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      fontSize: 20,
+                "Day Type",
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),
               ),
               Text(
-                "9:00 AM - 6:00 PM",
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                "Regular Day",
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       fontSize: 12,
-                      fontWeight: FontWeight.w200,
+                      fontWeight: FontWeight.w500,
                     ),
               ),
             ],
           ),
         ),
         Expanded(
-          flex: 6,
+          flex: 8,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 6),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Text(
-                  "Day Type",
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                      ),
-                ),
+              const SizedBox(height: 4),
+              Text(
+                "Shift Schedule:",
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Text(
-                  "Regular day",
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w200,
-                      ),
-                ),
+              Text(
+                "9:00 AM - 6:00 PM",
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+              ),
+              const SizedBox(height: 4),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(child: button(context, "IN", false)),
+                  const SizedBox(width: 8),
+                  Expanded(child: button(context, "OUT", true))
+                ],
               ),
               Align(
                 alignment: Alignment.center,
@@ -346,7 +350,7 @@ class Bundy extends Container {
                   onPressed: () {},
                   icon: const Icon(Icons.history),
                   label: Text(
-                    "Recent Logs",
+                    "RECENT LOGS",
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
@@ -354,46 +358,36 @@ class Bundy extends Container {
                   ),
                 ),
               ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  OutlinedButton(
-                    onPressed: () {},
-                    child: SizedBox(
-                      width: 50,
-                      child: Text(
-                        "IN",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(
-                                color: CustomTheme.colorBlueMain, height: 2),
-                      ),
-                    ),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {},
-                    child: SizedBox(
-                      width: 50,
-                      child: Text(
-                        "OUT",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(
-                                color: CustomTheme.colorBlueMain, height: 2),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ],
           ),
         ),
       ],
+    );
+  }
+
+  Widget button(BuildContext context, String title, bool selected) {
+    return ElevatedButton(
+      onPressed: () {
+        print("Test");
+      },
+      style: ElevatedButton.styleFrom(
+        shape: CustomTheme.roundedCorner,
+        backgroundColor: selected ? CustomTheme.colorBlueMain : null,
+      ),
+      child: SizedBox(
+        height: 45,
+        child: Center(
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: selected
+                    ? CustomTheme.background
+                    : CustomTheme.colorBlueMain,
+                fontSize: 12,
+                fontWeight: FontWeight.w700),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -550,6 +544,15 @@ class Survey extends Container {
               hoverColor: CustomTheme.colorBlueFaint,
               title: Text(item.key),
               subtitle: Text(item.value.key),
+              subtitleTextStyle:
+                  Theme.of(context).textTheme.bodySmall!.copyWith(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+              titleTextStyle: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(fontSize: 16),
               trailing: chipStatus(item.value.value),
               onTap: () {
                 print("TEST");
