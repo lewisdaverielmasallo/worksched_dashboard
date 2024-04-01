@@ -412,15 +412,12 @@ class Anouncements extends Container {
         controller: controller,
         children: [
           for (String key in announcements.keys)
-            Container(
-              padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
-              margin: const EdgeInsets.only(bottom: 8),
-              decoration: const BoxDecoration(
-                color: CustomTheme.colorBlueFaint,
-                borderRadius:
-                    BorderRadius.all(Radius.circular(CustomTheme.corner / 2)),
-              ),
-              child: Column(
+            ListTile(
+              hoverColor: CustomTheme.colorBlueFaint,
+              onTap: () {
+                print("Test");
+              },
+              title: Column(
                 children: [
                   Text(
                     key,
