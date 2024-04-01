@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 class CustomTheme {
   static const double cardElevation = 4;
   static const double corner = 12;
+  static const double innerCorner = 8;
   static final Color colorBlueMain = Colors.blue[800]!;
 
   static const Color colorBlueFaint = Color.fromARGB(25, 21, 101, 192);
   static final RoundedRectangleBorder innerRoundedCorner =
-      RoundedRectangleBorder(borderRadius: BorderRadius.circular(corner / 2));
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(innerCorner));
 
   static final RoundedRectangleBorder roundedCorner =
       RoundedRectangleBorder(borderRadius: BorderRadius.circular(corner));

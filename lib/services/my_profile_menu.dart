@@ -106,7 +106,7 @@ class MyProfileMenu extends StatelessWidget {
         PopupMenuItem(
           value: () {
             showDialog(
-              barrierDismissible: false,
+              barrierDismissible: true,
               context: context,
               builder: (dialogContext) {
                 return const AlertDialog(title: Text("No Functinality!"));

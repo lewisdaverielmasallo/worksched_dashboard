@@ -413,6 +413,7 @@ class Anouncements extends Container {
         children: [
           for (String key in announcements.keys)
             ListTile(
+              shape: CustomTheme.innerRoundedCorner,
               hoverColor: CustomTheme.colorBlueFaint,
               onTap: () {
                 print("Test");
