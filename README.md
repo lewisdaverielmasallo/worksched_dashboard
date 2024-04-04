@@ -1,4 +1,4 @@
 # worksched_dashboard
 
 A new Flutter project.
-DASHBOARD for NBS
+new DASHBOARD UI for NBS Worksched
