@@ -121,37 +121,44 @@ class LeftNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.only(left: 8),
-      children: [
-        const SizedBox(height: 24),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Work',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Aremat',
-                color: Colors.blue[800],
-                fontSize: 30.0,
-                fontWeight: FontWeight.w900,
+    return Card(
+      elevation: CustomTheme.cardElevation,
+      color: CustomTheme.background,
+      surfaceTintColor: CustomTheme.background,
+      shape: CustomTheme.roundedCorner
+          .copyWith(borderRadius: const BorderRadius.all(Radius.zero)),
+      child: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        children: [
+          const SizedBox(height: 24),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Work',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Aremat',
+                  color: Colors.blue[800],
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.w900,
+                ),
               ),
-            ),
-            Text(
-              'Sched',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Aremat',
-                color: Colors.blue[800],
-                fontSize: 30.0,
+              Text(
+                'Sched',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Aremat',
+                  color: Colors.blue[800],
+                  fontSize: 30.0,
+                ),
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 8),
-        ...LayoutProvider.getLeftNavs(context),
-      ],
+            ],
+          ),
+          const SizedBox(height: 8),
+          ...LayoutProvider.getLeftNavs(context),
+        ],
+      ),
     );
   }
 }
