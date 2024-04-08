@@ -1,4 +1,4 @@
 # worksched_dashboard
 
 A new Flutter project.
-new DASHBOARD UI for NBS Worksched
+new DASHBOARD UI for Northeast Business Solution Worksched
